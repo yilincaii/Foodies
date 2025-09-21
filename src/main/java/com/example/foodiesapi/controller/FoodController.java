@@ -37,9 +37,13 @@ public class FoodController {
         FoodResponse response = foodService.addFood(request, file);
         return response;
     }
-    @GetMapping
+    @GetMapping("/foods")
     public List<FoodResponse> readFoods(){
         return foodService.readFoods();
+    }
+    @GetMapping("/foods/{id}")
+    public FoodResponse readFood(@PathVariable String id) {
+        return foodService.readFood(id);
     }
 
 }

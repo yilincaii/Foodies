@@ -69,6 +69,12 @@ public class FoodServiceImpl implements FoodService{
          return databaseEntries.stream().map(object ->convertToResponse(object)).collect(Collectors.toList());
     }
 
+    @Override
+    public FoodResponse readFood(String id) {
+        FoodEntity existingFood = foodRepository.findById(id).orElseThrow( () -> new RuntimeException("food not found for the id"+id));
+        return convertToResponse(existingFood);
+    }
+
     private FoodEntity convertToEntity(FoodRequest request) {
         return FoodEntity.builder()
                 .name(request.getName())
