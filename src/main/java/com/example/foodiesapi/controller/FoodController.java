@@ -37,5 +37,9 @@ public class FoodController {
         FoodResponse response = foodService.addFood(request, file);
         return response;
     }
+    @GetMapping
+    public List<FoodResponse> readFoods(){
+        return foodService.readFoods();
+    }
 
 }

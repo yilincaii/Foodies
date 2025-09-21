@@ -63,6 +63,12 @@ public class FoodServiceImpl implements FoodService{
         return convertToResponse(newFoodEntity);
     }
 
+    @Override
+    public List<FoodResponse> readFoods() {
+         List<FoodEntity> databaseEntries = foodRepository.findAll();
+         return databaseEntries.stream().map(object ->convertToResponse(object)).collect(Collectors.toList());
+    }
+
     private FoodEntity convertToEntity(FoodRequest request) {
         return FoodEntity.builder()
                 .name(request.getName())
