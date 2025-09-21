@@ -65,14 +65,36 @@ public class FoodServiceImpl implements FoodService{
 
     @Override
     public List<FoodResponse> readFoods() {
-         List<FoodEntity> databaseEntries = foodRepository.findAll();
-         return databaseEntries.stream().map(object ->convertToResponse(object)).collect(Collectors.toList());
+        List<FoodEntity> databaseEntries = foodRepository.findAll();
+        return databaseEntries.stream().map(object -> convertToResponse(object)).collect(Collectors.toList());
     }
 
     @Override
     public FoodResponse readFood(String id) {
-        FoodEntity existingFood = foodRepository.findById(id).orElseThrow( () -> new RuntimeException("food not found for the id"+id));
+        FoodEntity existingFood = foodRepository.findById(id).orElseThrow(() -> new RuntimeException("Food not found for the id:"+id));
         return convertToResponse(existingFood);
+    }
+
+
+    @Override
+    public boolean deleteFile(String filename) {
+        DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
+                .bucket(bucketName)
+                .key(filename)
+                .build();
+        s3Client.deleteObject(deleteObjectRequest);
+        return true;
+    }
+
+    @Override
+    public void deleteFood(String id) {
+        FoodResponse response = readFood(id);
+        String imageUrl = response.getImageUrl();
+        String filename = imageUrl.substring(imageUrl.lastIndexOf("/")+1);
+        boolean isFileDelete = deleteFile(filename);
+        if (isFileDelete) {
+            foodRepository.deleteById(response.getId());
+        }
     }
 
     private FoodEntity convertToEntity(FoodRequest request) {
