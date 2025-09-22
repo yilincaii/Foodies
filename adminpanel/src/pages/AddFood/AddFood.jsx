@@ -1,13 +1,20 @@
 import React from 'react';
+import {assets} from '../../assets/assets';
 
 const AddFood = () => {
   return (
-        <div className="container mt-2">
+        <div className="mx-2 mt-2">
       <div className="row">
         <div className="card col-md-4">
           <div className="card-body">
             <h2 className="mb-4">Add Food</h2>
             <form>
+            <div className="mb-3">
+                <label htmlFor="image" className="form-label">
+                    <img src={assets.upload} alt="" width={98} />
+                </label>
+                <input type="file" className="form-control" id="image" required hidden />
+              </div>
               <div className="mb-3">
                 <label htmlfor="name" className="form-label">Name</label>
                 <input type="text" className="form-control" id="name" required name='name' />
