@@ -9,16 +9,29 @@ const AddFood = () => {
             <h2 className="mb-4">Add Food</h2>
             <form>
               <div className="mb-3">
-                <label for="name" className="form-label">Your Name</label>
-                <input type="text" className="form-control" id="name" required />
+                <label htmlfor="name" className="form-label">Name</label>
+                <input type="text" className="form-control" id="name" required name='name' />
+              </div>
+            
+              <div className="mb-3">
+                <label htmlfor="message" className="form-label">Description</label>
+                <textarea className="form-control" id="description" rows="5" required name ='description'></textarea>
               </div>
               <div className="mb-3">
-                <label for="email" className="form-label">Your Email</label>
-                <input type="email" className="form-control" id="email" required />
+                <label htmlfor="category" className="form-label">Category</label>
+                <select name="category" id="category" className='form-control' >
+                  <option value="Biryani">Biryani</option>
+                  <option value="Cake">Cake</option>
+                  <option value="Burger">Buger</option>
+                  <option value="Pizza">Pizza</option>
+                  <option value="Rolls">Rolls</option>
+                  <option value="Salad">Salad</option>
+                  <option value="Ice cream">Ice cream</option>
+                </select>
               </div>
               <div className="mb-3">
-                <label for="message" className="form-label">Your Message</label>
-                <textarea className="form-control" id="message" rows="5" required></textarea>
+                <label htmlFor="price" className="form-label">Price</label>
+                <input type="number" name="price" id="price" className='form-control'  />
               </div>
               <button type="submit" className="btn btn-primary">Send Message</button>
             </form>
