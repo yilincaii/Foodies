@@ -1,6 +1,9 @@
 import axios from "axios";
 import React, {useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import './ListFood.css';
+
+
 const ListFood = () => {
   const [list, setList] = useState([]);
   const fetchList = async () => {
@@ -12,9 +15,22 @@ const ListFood = () => {
       toast.error("Error while reading the foods.");
     }
   }
+
+
+  const removeFood = async (foodId) => {
+    const response = await axios.delete(`http://localhost:8081/api/foods/${foodId}`);
+    await fetchList();
+    if(response.status === 204) {
+      toast.success(" food removed.");
+    }else{
+      toast.error("Error occred while removing the food.");
+    }
+  }
+
   useEffect(() => {
     fetchList();
   }, []);
+  
  return (
     <div className="py-5 row justify-content-center">
       <div className="col-11 card">
@@ -37,10 +53,10 @@ const ListFood = () => {
                   </td>
                   <td>{item.name}</td>
                   <td>{item.category}</td>
-                  <td>&#36;{item.price}</td>
+                  <td>&#36;{item.price}.00</td>
                   <td className="text-danger">
                     <i
-                      class="bi bi-trash-fill fs-4"
+                      className="bi bi-x-circle-fill" onClick={() => removeFood(item.id)}
                     ></i>
                   </td>
                 </tr>
