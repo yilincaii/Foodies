@@ -24,22 +24,21 @@ const AddFood = () => {
     }));
   }
 
-  const onSubmitHandler =async (event) => {
-    event.preventDefault();
-    if(!image){
-      toast.error('Please select an image');
-      return;
-    } 
-
-    try {
-        await addFood(data, image);
-        toast.success('Food added successfully.');
-        setData({name: '', description: '', category: 'Biryani', price: ''});
-        setImage(null);
-    } catch (error) {
-         toast.error('Error adding food.');
+    const onSubmitHandler = async (event) => {
+        event.preventDefault();
+        if (!image) {
+            toast.error('Please select an image.');
+            return;
+        }
+        try {
+            await addFood(data, image);
+            toast.success('Food added successfully.');
+            setData({name: '', description: '', category: 'Biryani', price: ''});
+            setImage(null);
+        } catch (error) {
+            toast.error('Error adding food.');
+        }
     }
-  }
 
   return (
         <div className="mx-2 mt-2">
