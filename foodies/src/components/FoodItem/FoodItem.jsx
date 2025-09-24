@@ -1,5 +1,5 @@
 import React from 'react';
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 //import { StoreContext } from "../../context/StoreContext";
 const FoodItem = ({name, description,id,imageUrl,price}) => {
   //const { increaseQty, decreaseQty, quantities } = useContext(StoreContext);
@@ -25,7 +25,7 @@ const FoodItem = ({name, description,id,imageUrl,price}) => {
           </div>
         </div>
         <div className="card-footer d-flex justify-content-between bg-light">
-          <button className="btn btn-success btn-sm">Add to Cart</button>
+          <Link className="btn btn-success btn-sm" to={'/food/${id}'}>View Food</Link>
           <button className="btn btn-outline-secondary btn-sm"><i className="bi bi-heart"></i></button>
         </div>
       </div>
