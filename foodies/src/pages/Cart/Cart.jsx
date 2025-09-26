@@ -1,9 +1,10 @@
 import React,{useContext} from 'react';
 import './Cart.css';
 import { StoreContext } from '../../pages/Contact/StoreContext';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 
 const Cart = () => {
+    const navigate = useNavigate();
     const {foodList, quantities, increaseQty, decreaseQty,removeFromCart} = useContext(StoreContext);
     //cart items
     const cartItems = foodList.filter(food => quantities[food.id] > 0);
@@ -87,7 +88,7 @@ const Cart = () => {
                             <strong>Total</strong>
                             <strong>&#36; {subtotal===0? 0.0 : total.toFixed(2)}</strong>
                         </div>
-                        <button className="btn btn-primary w-100" disabled={cartItems.lenth === 0}>Proceed to Checkout</button>
+                        <button className="btn btn-primary w-100" disabled={cartItems.lenth === 0} onClick={()=>navigate('/order')}>Proceed to Checkout</button>
                     </div>
                 </div>
             </div>
