@@ -2,6 +2,7 @@ import React,{useContext} from 'react';
 import './Cart.css';
 import { StoreContext } from '../../pages/Contact/StoreContext';
 import { Link,useNavigate} from 'react-router-dom';
+import { calculateCartTotals } from '../../util/cartUtils';
 
 const Cart = () => {
     const navigate = useNavigate();
@@ -11,10 +12,8 @@ const Cart = () => {
 
 
     //calculation
-    const subtotal= cartItems.reduce((acc, food) => acc + food.price * quantities[food.id], 0);
-    const shipping = subtotal === 0 ? 0.0 : 5;
-    const tax = subtotal * 0.1; //10% tax
-    const total = subtotal + shipping + tax;
+    const {subtotal,shipping,tax,total}= calculateCartTotals(cartItems, quantities);
+    
 
 
   return (
@@ -88,7 +87,7 @@ const Cart = () => {
                             <strong>Total</strong>
                             <strong>&#36; {subtotal===0? 0.0 : total.toFixed(2)}</strong>
                         </div>
-                        <button className="btn btn-primary w-100" disabled={cartItems.lenth === 0} onClick={()=>navigate('/order')}>Proceed to Checkout</button>
+                        <button className="btn btn-primary w-100" disabled={cartItems.length === 0} onClick={()=>navigate('/order')}>Proceed to Checkout</button>
                     </div>
                 </div>
             </div>
