@@ -2,11 +2,16 @@ import React from 'react';
 import './Menubar.css';
 import { assets } from '../../assets/assets';
 import { Link, useNavigate } from "react-router-dom";
+import { useContext } from 'react';
+import { StoreContext } from '../../pages/Contact/StoreContext';
 
 
 
 
 const Menubar = () => {
+  const {quantities}= useContext(StoreContext);
+  const uniqueItemsInCart =Object.values(quantities).filter(qty =>qty> 0).length;
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container">
@@ -31,7 +36,7 @@ const Menubar = () => {
         <Link to={`/cart`}>
             <div className="position-relative">
                 <img src={assets.cart} alt="" height={32} width ={32} className='position-relative' />
-                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning'>5</span>
+                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning'>{uniqueItemsInCart}</span>
             </div>
         </Link>
         <button className='btn btn-outline-primary'>Login</button>
