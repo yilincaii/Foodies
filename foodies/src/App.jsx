@@ -5,17 +5,19 @@ import Home from './pages/Home/Home';
 import ExploreFood from './pages/ExploreFood/ExploreFood';
 import Contact from './pages/Contact/Contact';
 import FoodDetails from './pages/FoodDetails/FoodDetails';
+import Cart
+ from './pages/Cart/Cart';
 const App = () => {
   return (
     <div>
       <Menubar />
-
 
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/explore' element={<ExploreFood />} />
         <Route path='/food/:id' element={<FoodDetails />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
     </div>
   )
