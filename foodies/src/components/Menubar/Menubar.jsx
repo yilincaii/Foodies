@@ -7,12 +7,11 @@ import { StoreContext } from '../../pages/Contact/StoreContext';
 import { useState } from 'react';
 
 
-
-
 const Menubar = () => {
   const [active,setActive] = useState('home');
   const {quantities}= useContext(StoreContext);
   const uniqueItemsInCart =Object.values(quantities).filter(qty =>qty> 0).length;
+  const navigate =useNavigate();
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -41,8 +40,8 @@ const Menubar = () => {
                 <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning'>{uniqueItemsInCart}</span>
             </div>
         </Link>
-        <button className='btn btn-outline-primary'>Login</button>
-        <button className='btn btn-outline-success'>Register</button>
+        <button className='btn btn-outline-primary' onClick={()=>navigate('/login')}>Login</button>
+        <button className='btn btn-outline-success' onClick={()=>navigate('/register')}>Register</button>
       </div>
     </div>
   </div>
