@@ -6,7 +6,7 @@ const FoodItem = ({name, description,id,imageUrl,price}) => {
 
   return (
     <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
-      <div className="card" style={{ maxWidth: "320px" }}>
+      <Link to={`/food/${id}`}className="card" style={{ maxWidth: "320px","textDecoration" : "none" }}>
         <img src={imageUrl}  className="card-img-top" alt="Product Image" height={300} width={60}/>
      
         <div className="card-body">
@@ -28,7 +28,7 @@ const FoodItem = ({name, description,id,imageUrl,price}) => {
           <Link className="btn btn-success btn-sm" to={`/food/${id}`}>View Food</Link>
           <button className="btn btn-outline-secondary btn-sm"><i className="bi bi-heart"></i></button>
         </div>
-      </div>
+      </Link>
     </div>
   )
 }
