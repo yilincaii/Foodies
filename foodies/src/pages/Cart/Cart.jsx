@@ -1,9 +1,10 @@
 import React,{useContext} from 'react';
 import './Cart.css';
 import { StoreContext } from '../../pages/Contact/StoreContext';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-    const {foodList, quantities, increaseQty, decreaseQty} = useContext(StoreContext);
+    const {foodList, quantities, increaseQty, decreaseQty,removeFromCart} = useContext(StoreContext);
     //cart items
     const cartItems = foodList.filter(food => quantities[food.id] > 0);
 
@@ -46,7 +47,7 @@ const Cart = () => {
                             </div>
                             <div className="col-md-2 text-end">
                                 <p className="fw-bold">&#36; {(food.price * quantities[food.id]).toFixed(2)}</p>
-                                <button className="btn btn-sm btn-outline-danger">
+                                <button className="btn btn-sm btn-outline-danger" onClick={() => removeFromCart(food.id)}>
                                         <i className="bi bi-trash"></i>
                                     </button>
                             </div>
@@ -60,9 +61,9 @@ const Cart = () => {
 
                 )}
                 <div className="text-start mb-4">
-                    <a href="#" className="btn btn-outline-primary">
+                    <Link to="/" className="btn btn-outline-primary">
                         <i className="bi bi-arrow-left me-2"></i>Continue Shopping
-                    </a>
+                    </Link>
                 </div>
             </div>
             <div className="col-lg-4">
