@@ -31,10 +31,10 @@ const FoodDetails = () => {
             <div className="row gx-4 gx-lg-5 align-items-center">
                 <div className="col-md-6"><img className="card-img-top mb-5 mb-md-0" src={data.imageUrl} alt="..." /></div>
                 <div className="col-md-6">
-                    <div className="small mb-1">Category: <span className='badge text-bg-warning'>{data.category}</span></div>
+                    <div className="fs-5 mb-2">Category: <span className='badge text-bg-warning'>{data.category}</span></div>
                     <h1 className="display-5 fw-bolder">{data.name}</h1>
                     <div className="fs-5 mb-5">
-                        <span>&#36;{data.price}</span>
+                        <span>&#36;{data.price}.00</span>
                     </div>
                     <p className="lead">{data.description}</p>
                     <div className="d-flex">
