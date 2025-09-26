@@ -4,7 +4,7 @@ import './Contact.css';
 const Contact = () => {
   return (
     <section className="py-5">
-        <div classNameName="container">
+        <div className="container">
             <div className="row justify-content-center">
                 <div className="col-lg-8">
                     <div className="contact-form p-5 shadow-sm bg-white">
