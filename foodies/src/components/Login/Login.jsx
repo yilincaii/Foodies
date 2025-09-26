@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
-      <div className="container login-container">
+      <div className="login-container">
     <div className="row">
       <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div className="card border-0 shadow rounded-3 my-5">
@@ -25,7 +25,7 @@ const Login = () => {
                 <button className="btn btn-outline-danger btn-login text-uppercase mt-2" type="reset">Reset</button>
               </div>
                 <div className="mt-4">
-                    Already have an account? <Link to= "/register">Sign up</Link>
+                    Don't have an account? <Link to= "/register">Sign up</Link>
                 </div>
             </form>
           </div>
