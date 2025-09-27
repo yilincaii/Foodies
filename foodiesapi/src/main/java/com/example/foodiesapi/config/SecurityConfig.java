@@ -1,6 +1,7 @@
 package com.example.foodiesapi.config;
 
 
+import com.example.foodiesapi.filters.JwtAuthenticationFilter;
 import com.example.foodiesapi.service.AppUserDetailsService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -30,14 +31,16 @@ import java.util.List;
 
 public class SecurityConfig {
     private final AppUserDetailsService userDetailsService;
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http.cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth ->auth.requestMatchers("/api/register","/api/login","/api/foods/**").permitAll()
+                .authorizeHttpRequests(auth ->auth.requestMatchers("/api/register","/api/login","/api/food/**").permitAll()
                         .anyRequest().authenticated())
-                .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-                return http.build();
+                .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        return http.build();
     }
     @Bean
     public PasswordEncoder passwordEncoder(){
