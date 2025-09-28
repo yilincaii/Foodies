@@ -1,5 +1,8 @@
 package com.example.foodiesapi.service;
 
+import com.example.foodiesapi.io.CartRequest;
+import com.example.foodiesapi.io.CartResponse;
+
 public interface CartService {
-    void addToCart(String foodId);
+    CartResponse addToCart(CartRequest request);
 }

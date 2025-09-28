@@ -1,12 +1,16 @@
 package com.example.foodiesapi.controller;
 
+import com.example.foodiesapi.io.CartRequest;
+import com.example.foodiesapi.io.CartResponse;
 import com.example.foodiesapi.service.CartService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Map;
 
@@ -17,12 +21,12 @@ import java.util.Map;
 public class CartController {
     private final CartService cartService;
 @PostMapping
-    public ResponseEntity<?> addToCart(@RequestBody Map<String,String> request){
-        String foodID = request.get("foodId");
+    public CartResponse addToCart(@RequestBody CartRequest request){
+        String foodID = request.getFoodId();
         if(foodID == null ||foodID.isEmpty() ){
-            return ResponseEntity.badRequest().body("Food ID is required");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "FoodId not found");
         }
-        cartService.addToCart(foodID);
-        return ResponseEntity.ok().body(null);
+        return cartService.addToCart(request);
+
     }
 }
