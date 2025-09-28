@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './Register.css';
-import { Link } from 'react-router-dom';
-import axios from 'axios';                 // ✅ 补上 axios 导入
-import { toast } from 'react-toastify';    // ✅ 使用 react-toastify 的 toast API
+import { Link,useNavigate } from 'react-router-dom';
+import axios from 'axios';                 
+import { toast } from 'react-toastify';    
 
 const Register = () => {
+   const navigate = useNavigate();
   const [data, setData] = useState({
     name: '',
     email: '',
@@ -21,14 +22,13 @@ const Register = () => {
     try {
       const response = await axios.post('http://localhost:8081/api/register', data);
       if (response.status === 201) {
-        toast.success('Registration successful! Please log in.');  // ✅ 改成 toast.success
-        // 这里可选：跳转到登录页
-        // navigate('/login');
+        toast.success('Registration successful! Please log in.');  
+        navigate('/login');
       } else {
-        toast.error('Registration failed. Please try again.');     // ✅ 改成 toast.error
+        toast.error('Registration failed. Please try again.');     
       }
     } catch (error) {
-      toast.error('Registration failed. Please try again.');       // ✅ 改成 toast.error
+      toast.error('Registration failed. Please try again.');     
     }
   };
 
