@@ -50,12 +50,13 @@ const Menubar = () => {
           !token ? 
           <><button className='btn btn-outline-primary' onClick={()=>navigate('/login')}>Login</button>
         <button className='btn btn-outline-success' onClick={()=>navigate('/register')}>Register</button>
-          </> : <div className='"dropdown text-end'>
-            <a href="#" className='d-block link-body-emphasis text-decoration-none dropdown-toggle' data-bs-toggle="dropdown" aria-expanded="false"></a>
+          </> : <div className='dropdown text-end'>
+            <a href="#" className='d-block link-body-emphasis text-decoration-none dropdown-toggle' data-bs-toggle="dropdown" aria-expanded="false">
               <img src={assets.profile} alt="" width={32} height={32} className="rounded-circle"/>
+            </a>
             <ul className="dropdown-menu text-small">
-              <li><a className="dropdown-item" onClick={() =>navigate('/myorders')}>Orders</a></li>
-              <li><a className="dropdown-item" onClick={logout}>Logout</a></li>
+              <li><a className="dropdown-item" href="#" onClick={() =>navigate('/myorders')}>Orders</a></li>
+              <li><a className="dropdown-item" href="#" onClick={logout}>Logout</a></li>
             </ul>
 
           </div>
