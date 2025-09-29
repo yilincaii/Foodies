@@ -1,14 +1,12 @@
 
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
-import quantities from "../../components/FoodItem/FoodItem";
-export const StoreContext = createContext(null);
+import { createContext, useEffect, useState } from "react";export const StoreContext = createContext(null);
 
 import { fetchFoodList } from "../../service/foodService";
 export const StoreContextProvider = (props) => {
     const [foodList, setFoodList] = useState([]);
     const [quantities, setQuantities] = useState({ });
-    const [token,setToken] = useState("");
+    const [token,setToken] = useState(localStorage.getItem("token") || "");
 
 
     const increaseQty=(foodId) => {
@@ -41,6 +39,9 @@ export const StoreContextProvider = (props) => {
         async function loadData() {
             const data = await fetchFoodList();
             setFoodList(data);
+            if(localStorage.getItem("token")){
+                setToken(localStorage.getItem("token"));
+            }
         }
         loadData();
     }, []);
