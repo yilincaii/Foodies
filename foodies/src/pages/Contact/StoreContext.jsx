@@ -3,6 +3,8 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";export const StoreContext = createContext(null);
 
 import { fetchFoodList } from "../../service/foodService";
+import { addToCart, getCartData } from "../../service/cartService";
+import { removeQtyFromCart } from "../../service/cartService";
 export const StoreContextProvider = (props) => {
     const [foodList, setFoodList] = useState([]);
     const [quantities, setQuantities] = useState({ });
@@ -12,18 +14,13 @@ export const StoreContextProvider = (props) => {
     const increaseQty= async (foodId) => {
         setQuantities((prev) => ({...prev,[foodId]: (prev[foodId] || 0) + 1 }));
         //call APi
-        axios.post('http://localhost:8081/api/cart', {foodId},{headers: {"Authorization": `Bearer ${token}`}}
-
-        );
+        await addToCart(foodId,token);
     };
 
-    const decreaseQty=(foodId) => {
-        setQuantities((prev) => ({...prev,[foodId]: prev[foodId] > 0 ? prev[foodId] -1 : 0 }));
-        axios.post('http://localhost:8081/api/cart/decrease',
-             {foodId},
-            {headers: {"Authorization": `Bearer ${token}`}}
-
-        );
+    const decreaseQty=async (foodId) => {
+        setQuantities((prev) => ({...prev,[foodId]: prev[foodId] > 0 ? prev[foodId] -1 : 0,
+         }));
+        await removeQtyFromCart(foodId,token);
     };
     const removeFromCart = (foodId) => {
         setQuantities((prevQuantities) => {
@@ -34,12 +31,9 @@ export const StoreContextProvider = (props) => {
 
     };
     const loadCartData = async (token) => {
-        const response = await axios.get('http://localhost:8081/api/cart',
-            {headers: {"Authorization": `Bearer ${token}`}}
+        const items = await getCartData(token);
+        setQuantities(items);
 
-        );
-        setQuantities(response.data.items);
-    
     }
 
     const contextValue = {
