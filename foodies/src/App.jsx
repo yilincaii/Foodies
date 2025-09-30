@@ -10,9 +10,10 @@ import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // ✅ 加上样式
+import 'react-toastify/dist/ReactToastify.css'; 
 import PayPalSuccess from "./pages/PayPalSuccess";
 import PayPalCancel from "./pages/PayPalCancel";
+import MyOrders from './pages/MyOrders/MyOrders';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path='/register' element={<Register />} />
         <Route path="/success" element={<PayPalSuccess />} />
         <Route path="/cancel" element={<PayPalCancel />} /> 
+        <Route path="/myorders" element={<MyOrders />} /> 
       </Routes>
     </div>
   )

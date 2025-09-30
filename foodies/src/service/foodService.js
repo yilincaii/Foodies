@@ -15,30 +15,22 @@ const getAuthHeaders = () => {
 
 export const fetchFoodList = async () => {
     try {
-        // 重要：添加 headers 参数
-        const response = await axios.get(API_URL, {
-            headers: getAuthHeaders()
-        });
+        // ✅ 不需要 Authorization header，因为这个接口已经在 SecurityConfig 中 permitAll
+        const response = await axios.get(API_URL);
         return response.data;
     } catch (error) {
         console.log('Error fetching the food list', error);
         throw error;
-        
     }
-    
 }
 
 export const fetchFoodDetails = async(id) => {
     try {
-        // 重要：添加 headers 参数
-        const response = await axios.get(`${API_URL}/${id}`, {
-            headers: getAuthHeaders()
-        });
+        // ✅ 同样不需要 Authorization
+        const response = await axios.get(`${API_URL}/${id}`);
         return response.data;
     } catch (error) {
         console.log('Error fetching food details', error);
         throw error;
-        
     }
-    
 }
