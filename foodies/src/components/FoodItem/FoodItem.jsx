@@ -5,6 +5,7 @@ import { StoreContext } from '../../pages/Contact/StoreContext';
 const FoodItem = ({name, description,id,imageUrl,price}) => {
 
   const { increaseQty, decreaseQty, quantities } = useContext(StoreContext);
+  const currentQty = quantities?.[id] || 0;
 
   return (
     <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">

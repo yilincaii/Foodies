@@ -52,7 +52,7 @@ public class OrderController {
     }
 
     @PatchMapping("/status/{orderId}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.OK )
     public void updateOrderStatus(@PathVariable String orderId, @RequestParam String status) {
         orderService.updateOrderStatus(orderId, status);
     }

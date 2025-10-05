@@ -48,17 +48,21 @@ export const StoreContextProvider = (props) => {
         loadCartData
     };
 
-    useEffect(() => {
-        async function loadData() {
-            const data = await fetchFoodList();
-            setFoodList(data);
-            if(localStorage.getItem("token")){
-                setToken(localStorage.getItem("token"));
-                await loadCartData(localStorage.getItem("token"));
-            }
+useEffect(() => {
+    async function loadData() {
+        const data = await fetchFoodList();
+        setFoodList(data);
+        
+        const storedToken = localStorage.getItem("token");
+        if(storedToken){
+            setToken(storedToken);
+            await loadCartData(storedToken); // ✅ 只在有 token 时加载
+        } else {
+            setQuantities({}); // ✅ 未登录时设置为空对象
         }
-        loadData();
-    }, []);
+    }
+    loadData();
+}, []);
 
     return (
         <StoreContext.Provider value={contextValue}>

@@ -26,12 +26,11 @@ try {
 export const getCartData = async (token) => {
     try {
         const response = await axios.get(API_URL,
-                {headers: {"Authorization": `Bearer ${token}`}}
-            );    
-         return response.data.items;
-
+            {headers: {"Authorization": `Bearer ${token}`}}
+        );    
+        return response.data.items || {}; // ✅ 必须有默认值
     } catch (error) {
         console.log("Error fetching cart data", error);
-        
+        return {}; // ✅ 必须返回空对象
     }
 }
