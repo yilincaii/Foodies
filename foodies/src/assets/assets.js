@@ -1,15 +1,15 @@
 import logo from './logo.png';
 import cart from './cart.png';
 
-import biryani from './biryani.png';
-import burger from './burger.png';
-import cakes from './cakes.png';
-import icecream from './icecream.png';
-import pizza from './pizza.png';
-import rolls from './rolls.png';
-import salad from './salad.png';
+import coldDishes from './codeDishes.jpg';  
+import vegetables from './veg.jpeg';
+import meat from './meeet.jpg';
+import soupDrinks from './soup.jpeg';
+import stapleFood from './rolls.png';
+import seafood from './Seafood.avif';
+
 import profile from './profile.png';
-import delivery from './delivery.png';
+import delivery from './delilogo.png';
 
 export const assets = {
     logo,
@@ -20,32 +20,27 @@ export const assets = {
 
 export const categories = [
     {
-        category: 'Biryani',
-        icon: biryani
+        category: 'Cold Dishes',
+        icon: coldDishes
     },
     {
-        category: 'Burger',
-        icon: burger
+        category: 'Vegetables',
+        icon: vegetables
     },      
     {
-        category: 'Cake',
-        icon: cakes
+        category: 'Meat',
+        icon: meat
     },
     {
-        category: 'Ice cream',
-        icon: icecream
+        category: 'Soup & Drinks',
+        icon: soupDrinks
     },
     {
-        category: 'Pizza',
-        icon: pizza
-    },
-   {
-        category: 'Rolls',
-        icon: rolls
+        category: 'Staple Food',
+        icon: stapleFood
     },
     {
-        category: 'Salad',
-        icon: salad
+        category: 'Seafood',
+        icon: seafood
     }
-
-];  
+];
