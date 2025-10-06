@@ -7,9 +7,9 @@ import meat from './meeet.jpg';
 import soupDrinks from './soup.jpeg';
 import stapleFood from './rolls.png';
 import seafood from './Seafood.avif';
-
+import dessert from './Des.jpg';
 import profile from './profile.png';
-import delivery from './delilogo.png';
+import delivery from './delivery.png';
 
 export const assets = {
     logo,
@@ -42,5 +42,9 @@ export const categories = [
     {
         category: 'Seafood',
         icon: seafood
+    },
+    {
+        category: 'Dessert',
+        icon: dessert
     }
 ];

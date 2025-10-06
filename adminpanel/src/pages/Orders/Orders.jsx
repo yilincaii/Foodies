@@ -111,7 +111,7 @@ const Orders = () => {
 
                         {/* 总价 */}
                         <td className="align-middle" style={{ minWidth: '100px' }}>
-                          &#x20B9;{(order.amount || 0).toFixed(2)}
+                          &#36;{(order.amount || 0).toFixed(2)}
                         </td>
 
                         {/* 商品数量 */}

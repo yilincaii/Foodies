@@ -8,13 +8,16 @@ import { useState } from 'react';
 
 
 const Menubar = () => {
-
-  const [active,setActive] = useState('home');
-  const {quantities,token,setToken,setQuantities}= useContext(StoreContext);
-   const uniqueItemsInCart = quantities 
+  const [active, setActive] = useState('home');
+  const { quantities, token, setToken, setQuantities } = useContext(StoreContext);
+  
+  const uniqueItemsInCart = quantities 
     ? Object.values(quantities).filter(qty => qty > 0).length 
     : 0;
-  const navigate =useNavigate();
+    
+  console.log('Cart count:', uniqueItemsInCart);
+  
+  const navigate = useNavigate();
   const logout = () => {
     localStorage.removeItem("token");
     setToken("");

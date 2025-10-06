@@ -68,6 +68,7 @@ const AddFood = () => {
                   <option value="Soup & Drinks">Soup & Drinks (汤羹饮品)</option>
                   <option value="Staple Food">Staple Food (主食)</option>
                   <option value="Seafood">Seafood (海鲜)</option>
+                  <option value="Dessert">Dessert (甜品)</option>
                 </select>
               </div>
               <div className="mb-3">

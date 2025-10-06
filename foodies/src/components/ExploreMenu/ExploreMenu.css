@@ -11,7 +11,7 @@
 }
 
 .explore-menu-list-item .active {
-    border: 5px solid tomato;
+    border: 5px solid rgb(216, 219, 28);
     padding: 2px;
 }
 
@@ -30,7 +30,7 @@
 
 
 .scroll-icon:hover {
-    color: tomato;
+    color: rgb(216, 219, 28)
 }
 
 .explore-menu hr {
@@ -41,9 +41,9 @@
 }
 
 .explore-menu-list-item .active {
-    border: 4px solid tomato;
+    border: 4px solid rgb(214, 126, 11);
 }
 
 .explore-menu-list-item .text-active {
-    color: tomato;
+    color: rgb(201, 161, 14);
 }

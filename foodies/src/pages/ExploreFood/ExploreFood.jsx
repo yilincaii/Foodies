@@ -20,6 +20,7 @@ const ExploreFood = () => {
                   <option value="Soup & Drinks">Soup & Drinks (汤羹饮品)</option>
                   <option value="Staple Food">Staple Food (主食)</option>
                   <option value="Seafood">Seafood (海鲜)</option>
+                  <option value="Dessert">Dessert (甜品)</option>
                 </select>
                 <input type="text" className='form-control mt-2' placeholder='Search your favorite dish...'
                   onChange={(e) => setSearchText(e.target.value)} value={searchText} />
