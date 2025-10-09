@@ -398,10 +398,10 @@ MIT License - Feel free to use this project to spread Chinese culinary culture!
 
 ## 📞 Contact
 
-**Author:** [Your Name]  
-**Email:** your.email@example.com  
-**LinkedIn:** [Your Profile]  
-**Portfolio:** [Your Website]
+**Author:** Elaine (yilin) Cai  
+**Email:** yilin.cai2004@gmail.com 
+**LinkedIn:** www.linkedin.com/in/ucsdyilin-cai
+
 
 ---
 
