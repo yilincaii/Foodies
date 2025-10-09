@@ -20,11 +20,16 @@ This isn't just a food delivery app. **It's a cultural bridge.** It's my way of 
 
 ---
 
-## 🚀 Live Demo
 
-- **Customer App:** [http://localhost:5173](http://localhost:5173)
-- **Admin Panel:** [http://localhost:5174](http://localhost:5174)
-- **Backend API:** [http://localhost:8081](http://localhost:8081)
+## Panda Foodies - Full-Stack Food Ordering Platform Demo
+
+**Video Description:** Please view the final product demonstration for the Panda Foodies platform, showcasing the complete user experience from dish exploration and secure cart management to successful payment processing and real-time order status updates across the Admin Dashboard.
+
+<div align="center">
+
+[![Panda Foodies - Full-Stack Chinese Food Ordering Platform showing](https://img.youtube.com/vi/Wz9hSSndkTw/0.jpg)](http://www.youtube.com/watch?v=Wz9hSSndkTw)
+
+</div>
 
 ---
 
